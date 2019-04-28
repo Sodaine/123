@@ -1,4 +1,4 @@
-	//sa[1:n] : the index of the suffix which is rank i
+	//sa[0:n] : the index of the suffix which is rank i
 	//sa[0] = n,the empty string consist only 0
 	//h[1:n+1] : the length of the longest common prefix of S[sa[i-1]] and S[sa[i]]
 	//h[1] == h[n+1] == 0
