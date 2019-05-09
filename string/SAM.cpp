@@ -31,6 +31,7 @@ void add(int c) {
 //id[i]：按len排序后，排在第i位的结点编号
 int cnt[N<<1],id[N<<1];
 void bucketsort() {
+	memset(cnt,0,sizeof(cnt));
 	rep(i,1,tot+1) ++cnt[dian[i].len];
 	rep(i,1,tot+1) cnt[i] += cnt[i-1];
 	rep(i,1,tot+1) id[cnt[dian[i].len]--] = i;
