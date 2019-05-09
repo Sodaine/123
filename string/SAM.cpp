@@ -36,3 +36,22 @@ void bucketsort() {
 	rep(i,1,tot+1) cnt[i] += cnt[i-1];
 	rep(i,1,tot+1) id[cnt[dian[i].len]--] = i;
 }
+void topogao() {
+	bucketsort();
+	rep(i,1,tot+1) {
+		int u = id[i],fa = dian[u].fa;
+		...;
+	}
+}
+void run(char *t) {
+	int u = 1,len = 0;
+	for(int i = 0;t[i];i++) {
+		int c = t[i] - 'a';
+		while(u && !dian[u].ch[c]) u = dian[u].fa,len = dian[u].len;
+		if(u) {
+			u = dian[u].ch[c];
+			len++;
+		}else u = 1,len = 0;
+		mx[u] = max(len,mx[u]);
+	}
+}
