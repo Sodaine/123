@@ -1,6 +1,7 @@
+//所有跟节点有关的信息都要开两倍空间
 struct NODE{
 	int ch[26];
-	int len,fa;//fa:最长的存在的后缀的结点编号
+	int len,fa;
 	void clear() {
 		memset(ch,0,sizeof(ch));len = 0;
 	}
