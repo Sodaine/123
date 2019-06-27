@@ -10,8 +10,6 @@ void topo(int u) {
 }
 void scc(int u,int c) {
 	vis[u] = 0,id[u] = c;
-	if(mn > w[u]) mn = w[u],cnt = 1;
-	else if(mn == w[u]) cnt++;
 	for(int v:e[u]) {
 		if(vis[v]) scc(v);
 	}
