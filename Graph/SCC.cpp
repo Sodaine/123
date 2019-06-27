@@ -11,7 +11,7 @@ void topo(int u) {
 void scc(int u,int c) {
 	vis[u] = 0,id[u] = c;
 	for(int v:e[u]) {
-		if(vis[v]) scc(v);
+		if(vis[v]) scc(v,c);
 	}
 }
 void solve()
