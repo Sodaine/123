@@ -14,8 +14,13 @@ void scc(int u,int c) {
 		if(vis[v]) scc(v,c);
 	}
 }
-void solve()
+void solve(int n)
 {
+	memset(vis,0,sizeof(vis[0])*n);
+	rep(i,0,n) {
+		if(!vis[i]) topo(i);
+	}
+	reverse(order.begin(),order.end());
   	int _=0;
   	for(int u:order) {
 		if(vis[u]) scc(u,_++);
