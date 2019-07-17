@@ -12,9 +12,8 @@ stack<int> stk;
 void solve()
 {
 	rep(i,1,n+1) scanf("%d",&h[i]);
-	int mn = INF,x;
+	int x;
 	rep(i,1,n+1) {
-		mn = min(mn,h[i]);
 		x = 0;
 		while(!stk.empty() && h[stk.top()] > h[i]) {
 			r[stk.top()] = x;
@@ -26,10 +25,5 @@ void solve()
 	}
 	for(x = 0;!stk.empty();x = stk.top(),stk.pop())
 		r[stk.top()] = x;
-	rep(i,1,n+1) {
-		if(h[i] == mn) {
-			dfs(i,0);//i is the root
-			break;
-		}
-	}
+	dfs(x,0);//i is the root
 }
