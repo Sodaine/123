@@ -6,7 +6,6 @@ void dfs(int u,int fh) {
 	if(r[u]) dfs(r[u],h[u]),R[u] = R[r[u]];
 	/* x,y is the edge length of control region of u*/
 	int y = h[u] - fh,x = R[u] - L[u] + 1;
-
 }
 stack<int> stk;
 void solve()
