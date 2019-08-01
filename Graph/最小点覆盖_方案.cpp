@@ -12,13 +12,8 @@
 	rep(z,0,ans) {
 		rep(i,0,n) {
 			int u = g[i].fi,v = g[i].se;
-			if(!stau[u]) {
-				stav[v] = 1;
-				stau[match[v]] = 0;
-			}else if(!stav[v]) {
-				stau[u] = 1;
-				stav[_match[u]] = 0;
-			}
+			if(!stau[u]) stau[match[v]] = 0;
+			else if(!stav[v]) stav[_match[u]] = 0;
 		}
 	}
 	rep(i,0,n) {
