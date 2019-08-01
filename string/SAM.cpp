@@ -37,7 +37,13 @@ void bucketsort() {
 	rep(i,1,tot+1) cnt[i] += cnt[i-1];
 	rep(i,1,tot+1) id[cnt[dian[i].len]--] = i;
 }
-
+void topogao() {
+	bucketsort();
+	per(i,1,tot+1) {
+		int u = id[i],fa = dian[u].fa;
+		...;
+	}
+}
 void run(char *t) {
 	int u = 1,len = 0;
 	for(int i = 0;t[i];i++) {
@@ -50,3 +56,12 @@ void run(char *t) {
 		mx[u] = max(len,mx[u]);
 	}
 }
+/*
+后缀自动机可以在线创建，依次加入末尾的字符。
+值得注意的是，对于同一个子串，可以代表这个子串的节点，在整棵自动机逐渐创建的过程中，会不断变化，
+若需要在建自动机的过程中，一直维护某个子串的节点位置，则在每次更新自动机之后，
+都需要通过检查原本子串节点的父节点的长度是否大于等于子串的长度，来确定是否需要更新节点位置
+*/
+//ps是需要维护的节点位置
+add(s[i-j]-'a');  
+while(dian[dian[ps].fa].len >= j) ps = dian[ps].fa;
