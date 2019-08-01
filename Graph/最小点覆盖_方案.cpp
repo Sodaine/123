@@ -13,10 +13,10 @@
 		rep(i,0,n) {
 			int u = g[i].fi,v = g[i].se;
 			if(!stau[u]) {
-				stav[v] = 2;
+				stav[v] = 1;
 				stau[match[v]] = 0;
 			}else if(!stav[v]) {
-				stau[u] = 2;
+				stau[u] = 1;
 				stav[_match[u]] = 0;
 			}
 		}
