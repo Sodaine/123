@@ -23,3 +23,10 @@ rep(i,0,n) {
 	if(stau[u]) ansu[u].pb(i+1);//点u覆盖的边集
 	else ansv[v].pb(i+1);
 }
+
+//-----
+//网络流跑最小割
+//c[i] == 1,i是X部点;b[i]=1,i属于最小点覆盖
+ rep(i,1,n+1) {
+	 if(c[i] ^ (dis[i] != -1)) b[i] = 1;
+}
