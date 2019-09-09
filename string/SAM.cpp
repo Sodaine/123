@@ -6,7 +6,7 @@ struct NODE{
 		memset(ch,0,sizeof(ch));len = 0;
 	}
 }dian[N<<1];
-int last,tot;
+int last,tot;//tot节点数量！
 void init(){
 	last = 1;tot = 1;
 	dian[1].clear();
