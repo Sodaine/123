@@ -1,29 +1,29 @@
 /**
- * 最近必经点(idom): 节点y的必经点集合dom(y)中dfn值最大的点x是距离y最近的必经点
- *                   称为y的最近必经点, 最近必经点是唯一的, 记x=idom(y)
- * 半必经点(semi): 在搜索树T上点y的祖先中，通过非树枝边可以到达y的深度最小的祖先x，
- *                 称为y的半必经点。半必经点也是唯一的，记x=semi(y)。
+ * 最近必经点 (idom): 节点 y 的必经点集合 dom(y) 中 dfn 值最大的点 x 是距离 y 最近的必经点
+ *                   称为 y 的最近必经点, 最近必经点是唯一的, 记 x=idom(y)
+ * 半必经点 (semi) : 在搜索树 T 上点 y 的祖先中，通过非树枝边可以到达 y 的深度最小的祖先 x ，
+ *                 称为 y 的半必经点。半必经点也是唯一的，记 x=semi(y)。
  *
- * 1. 设有向图G=(V,E)，(G,r)是一个Flow Graph，则称(G,r)的子图
- *    D=(V, { (idom(i),i) | i∈V,i≠r }, r)为(G,r)的一棵Dominator Tree。
- * 2. (G,r)的Dominator Tree是一棵有向有根树，从r出发可以到达G中的所有点，
- *    并且树上的每条边(u,v)都满足：u=idom(v)，即父节点是子节点的最近必经点。
- * 3. x=idom(y)，当且仅当有向边(x,y)是Dominator Tree中的一条树枝边。
- * 4. x dom y，当且仅当在Dominator Tree中存在一条从x到y的路径。
- * 5. x的必经点集合dom(x)就是Dominator Tree上x的所有祖先以及x自身。
+ * 1. 设有向图 G=(V,E)， (G,r) 是一个 Flow Graph，则称 (G,r) 的子图
+ *    D=(V, { (idom(i),i) | i∈V,i≠r }, r) 为 (G,r) 的一棵 Dominator Tree。
+ * 2.  (G,r) 的 Dominator Tree 是一棵有向有根树，从 r 出发可以到达 G 中的所有点，
+ *    并且树上的每条边 (u,v) 都满足： u=idom(v) ，即父节点是子节点的最近必经点。
+ * 3. x=idom(y) ，当且仅当有向边 (x,y) 是 Dominator Tree 中的一条树枝边。
+ * 4. x dom y ，当且仅当在 Dominator Tree 中存在一条从 x 到 y 的路径。
+ * 5. x 的必经点集合 dom(x) 就是 Dominator Tree 上 x 的所有祖先以及 x 自身。
  *
  * 应用:
- * 1. 求有向图的割顶: dominator tree上的非叶节点
+ * 1. 求有向图的割顶:  dominator tree 上的非叶节点
  * 2. 有向图的必经边: 每条边上加一个点, 转化成必经点问题
- * 3. 求起点S到终点T的所有路径中最接近源的必经点: 求出必经点, 取最近的
- * 4. 求多少个(x,y)满足存在1->x的路径和1->y的路径只有1这个公共点:
- *    求出1为根的dominator tree, 算出不合法的, 总的减去即可.
- *    考虑1的每个儿子v, 同一颗子树的节点对都是非法的.
+ * 3. 求起点 S 到终点 T 的所有路径中最接近源的必经点: 求出必经点, 取最近的
+ * 4. 求多少个 (x,y) 满足存在 1->x 的路径和 1->y 的路径只有 1 这个公共点:
+ *    求出 1 为根的 dominator tree , 算出不合法的, 总的减去即可.
+ *    考虑 1 的每个儿子 v , 同一颗子树的节点对都是非法的.
  *
- * succ是原图, pred是边反向后的图, dom是Dominator Tree
- * dom记录的是dfs序构成的树, G中节点u在dom树上的标号是dfn[u]
- * 相反dom中节点u在原图G中的标号是pt[u]
- * 调用build得到以s为根的Dominator Tree
+ * succ 是原图,  pred 是边反向后的图,  dom 是 Dominator Tree
+ *  dom 记录的是 dfs 序构成的树,  G 中节点 u 在 dom 树上的标号是 dfn[u]
+ * 相反 dom 中节点 u 在原图 G 中的标号是 pt[u]
+ * 调用 build 得到以 s 为根的 Dominator Tree
  **/
 namespace DT {
   int dfn[N], pre[N], pt[N], sz;
