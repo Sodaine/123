@@ -4,9 +4,9 @@
           a   b   a   a   b
     pa[j] 0 1 2 3 4 5 6 7 8
           1 0 2 0 1 2 1 0 1
-    pa[j]: 以j为中心最长的回文串左侧包括j的长度
+    pa[j]: 以 j 为中心最长的回文串左侧包括 j 的长度
     */
-//两倍数组
+// 两倍数组
 void Manacher(char *s,int n,int *pa) {
 	pa[0] = 1;
 	for(int i = 1,j = 0;i < (n << 1) - 1;++i) {
@@ -26,8 +26,8 @@ void Manacher(char *s,int n,int *pa) {
    len[i]   1 2 1 4 1 2 5 2 1 2 1
     real = len[i] - 1;
 all i for t: 
-    i/2-1是串中心或中心左边的字符在s中的下标
-    L[i]表示i为中心的最长回文串的左端点在s中的下标，R[i]同
+    i/2-1 是串中心或中心左边的字符在 s 中的下标
+    L[i] 表示 i 为中心的最长回文串的左端点在 s 中的下标， R[i] 同
     L[i] = i/2 - len[i] / 2;
     R[i] = i/2-1 + (len[i]-1)/2;
 */
