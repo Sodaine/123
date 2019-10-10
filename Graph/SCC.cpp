@@ -1,6 +1,6 @@
 int vis[N],id[N];
 vi e[N],g[N],order;
-//e[u].pb(v),g[v].pb(u):e为原图，g为逆图
+//e[u].pb(v),g[v].pb(u):e 为原图， g 为逆图
 void topo(int u) {
 	vis[u] = 1;
 	for(int v:g[u]) if(!vis[v]) topo(v);
