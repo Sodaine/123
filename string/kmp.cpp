@@ -9,9 +9,9 @@ void getnxt() {
 
 for(int i = 0,j = 0;i < tlen;i++) {
     while(j >= 0 && t[i] != s[j]) j = nxt[j];
-    if(++j == slen) cnt++;//t中找到一个s
+    if(++j == slen) cnt++;// t 中找到一个 s 
 }
 rep(i,2,n+1) {
-		if(nxt[i] && (i) % (i-nxt[i]) == 0) 
-            //长度为i的前缀的循环节大小为i-nxt[i]
+	if(nxt[i] && (i) % (i-nxt[i]) == 0) 
+ 	// 长度为 i 的前缀的循环节大小为 i-nxt[i]
 }
