@@ -3,7 +3,7 @@ struct NODE{
 	int ch[26];
 	int len,fa;
 	void clear() {
-		memset(ch,0,sizeof(ch));len = 0;
+		memset(ch,0,sizeof(ch));fa = len = 0;
 	}
 }dian[N<<1];
 int last,tot;// tot 节点数量
