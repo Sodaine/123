@@ -40,7 +40,7 @@ struct DA{
 	void init(string s) {
 		n = s.length();
 		rep(i,0,n) in[i] = s[i] - 'a' + 1;
-		s[n] = 0;
+		in[n] = 0;
 	}
 	void Build() {
 		in[n] = 0;
