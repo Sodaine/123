@@ -37,6 +37,11 @@
 
 struct DA{
 	int p[18][N],rk[N],in[N],Log[N],n;
+	void init(string s) {
+		n = s.lenght();
+		rep(i,0,n) in[i] = s[i] - 'a' + 1;
+		s[n] = 0;
+	}
 	void Build() {
 		in[n] = 0;
 		da(in,n+1,300);//[1,300] is the set of in[]
